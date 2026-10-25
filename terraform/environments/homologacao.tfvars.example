@@ -1,0 +1,14 @@
+environment = "homologacao"
+region      = "us-east-1"
+
+# Rede existente do Learner Lab. Confirme os valores antes do deploy.
+vpc_id     = "vpc-039aa07ac05628396"
+subnet_ids = ["subnet-0efce37ecc44627f8", "subnet-06d2b47061b4907e7"]
+
+# Adicione o SG de origem real do Kubernetes quando estiver disponivel.
+application_security_group_ids = []
+instance_class                 = "db.t3.micro"
+multi_az                       = false
+backup_retention_days          = 0
+deletion_protection            = true
+skip_final_snapshot            = true

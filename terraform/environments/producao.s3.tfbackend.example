@@ -1,0 +1,5 @@
+bucket       = "autopecas-tfstate-376721682670"
+key          = "db/producao/terraform.tfstate"
+region       = "us-east-1"
+encrypt      = true
+use_lockfile = true
