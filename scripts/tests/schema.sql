@@ -10,12 +10,12 @@ CREATE TABLE public.pecas (id bigint PRIMARY KEY, nome text, ativo boolean DEFAU
 CREATE TABLE public.servicos (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
 CREATE TABLE public.ordens_servico (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
 CREATE TABLE public.orcamentos (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
-CREATE TABLE public.itens_orcamento_servico (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
-CREATE TABLE public.itens_orcamento_peca (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
-CREATE TABLE public.itens_servico_os (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
-CREATE TABLE public.itens_peca_os (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
+CREATE TABLE public.itens_orcamento_servico (id bigserial PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
+CREATE TABLE public.itens_orcamento_peca (id bigserial PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
+CREATE TABLE public.itens_servico_os (id bigserial PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
+CREATE TABLE public.itens_peca_os (id bigserial PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
 CREATE TABLE public.movimentacoes_estoque (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
-CREATE TABLE public.historico_status_os (id bigint PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
+CREATE TABLE public.historico_status_os (id bigserial PRIMARY KEY, nome text, ativo boolean DEFAULT true, cpf text, cnpj text);
 CREATE TABLE public.funcionario_roles (funcionario_id bigint, role text);
 CREATE TABLE public.flyway_schema_history (installed_rank integer);
 CREATE SEQUENCE public.os_numero_seq;

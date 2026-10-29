@@ -63,6 +63,8 @@ class DatabasePermissionsTest(unittest.TestCase):
         self.as_role("autopecas_app", "DELETE FROM clientes WHERE id=1")
         self.assertEqual(self.as_role("autopecas_app", "SELECT count(*) FROM clientes"), "0")
         self.assertEqual(self.as_role("autopecas_app", "SELECT nextval('os_numero_seq')"), "1")
+        # Colunas BIGSERIAL: o INSERT sem id usa a sequence implicita da tabela.
+        self.as_role("autopecas_app", "INSERT INTO historico_status_os(nome) VALUES ('teste')")
 
     def test_application_cannot_change_schema(self):
         for sql in ["CREATE TABLE public.indevida(id int)", "ALTER TABLE clientes ADD COLUMN indevida int", "DROP TABLE clientes"]:

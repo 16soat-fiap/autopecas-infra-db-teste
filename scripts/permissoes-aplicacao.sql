@@ -21,7 +21,18 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON TABLE
     public.movimentacoes_estoque,
     public.historico_status_os
 TO autopecas_app;
-GRANT USAGE, SELECT ON SEQUENCE public.os_numero_seq, public.mecanico_seq, public.atendente_seq TO autopecas_app;
+-- Inclui as sequences implicitas das colunas BIGSERIAL (<tabela>_id_seq): o INSERT
+-- sem id chama nextval nelas e falha com 42501 se ficarem de fora.
+GRANT USAGE, SELECT ON SEQUENCE
+    public.os_numero_seq,
+    public.mecanico_seq,
+    public.atendente_seq,
+    public.itens_orcamento_servico_id_seq,
+    public.itens_orcamento_peca_id_seq,
+    public.itens_servico_os_id_seq,
+    public.itens_peca_os_id_seq,
+    public.historico_status_os_id_seq
+TO autopecas_app;
 
 -- Nao usar ALTER DEFAULT PRIVILEGES global: tabelas futuras precisam de revisao.
 -- Depois de novas migrations, atualize esta lista e execute o script novamente.
